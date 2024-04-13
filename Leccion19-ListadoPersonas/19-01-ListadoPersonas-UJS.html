@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Personas</title>
+</head>
+<body>
+    Nombre: <input type="text" placeholder="ingresa el nombre" id="nombre">
+    Apellido: <input type="text" placeholder="ingresa el Apellido" id="apellido">
+
+    <button id="registrar">Ingresar</button>
+
+    <div id="mostrar"></div>
+
+    <script>
+        let nombre = document.getElementById('nombre');
+        let apellido = document.getElementById('apellido');
+        let registrar = document.getElementById('registrar');
+
+        registrar.addEventListener('click', () => {
+            let b = document.createElement('br');
+            let l = document.createElement('li');
+            l.textContent = `${nombre.value} ${apellido.value}`
+            document.getElementById('mostrar').appendChild(b);
+            document.getElementById('mostrar').appendChild(l);
+        });
+    </script>
+</body>
+</html>

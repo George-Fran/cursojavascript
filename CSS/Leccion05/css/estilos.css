@@ -1,0 +1,15 @@
+body {
+    /* background-color: dodgerblue;
+    background-image: url("/img/fondo.png");
+    background-repeat: no-repeat;
+    background-position: right top;
+    background-attachment: fixed; */
+    /* background: dodgerblue url("/img/fondo.png") no-repeat right top;
+    background-attachment: fixed; */
+    background: url("/img/fondo.png") no-repeat;
+    background-size: cover;
+  }
+h1{
+    text-align: center;
+    background-color: dodgerblue;
+}

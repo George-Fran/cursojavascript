@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Botones again</title>
+</head>
+<style>
+    .estilos{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    button{
+        width: 100px;
+        height: 50px;
+        border-radius: 5px;
+        border: 2px solid #000;
+        margin: 5px;
+    }
+</style>
+<body>
+    <h1 style="text-align: center;">Vamos a comer papas fritas?</h1>
+    <div class="estilos">
+        <button style="background: greenyellow;" id="btnSi">Si vamos</button>
+        <button style="background: red; color: white;" id="btnNo">No por feo</button>
+    </div>
+    <script>
+        let botonNo = document.getElementById('btnNo');
+        botonNo.addEventListener('mouseover', (evento) => {
+            let w = window.innerWidth;
+            let h = window.innerHeight;
+            let nuevoW = (Math.random() * w);
+            let nuevoH = (Math.random() * h);
+
+            evento.target.style.position = 'absolute';
+            evento.target.style.left = nuevoW + "px";
+            evento.target.style.top = nuevoH + "px";
+        });
+
+        let botonSi = document.getElementById('btnSi');
+        botonSi.addEventListener('click', () => {
+            location.href = '';
+        });
+    </script>
+</body>
+</html>

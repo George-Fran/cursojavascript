@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goti Goti</title>
+</head>
+<body>
+    <h1 style="text-align: center;" id="titulo">Mi titulo es goti?</h1>
+    <h2 id="click">Click aca para ganar un auto 0 kilometros</h2>
+
+    Convertidor a mayusculas: <input type="text" name="nombre" placeholder="Ingrese un texto" id="nombre">
+    <span>FOrmulario</span>
+    Nombre <input type="text" name="nom" placeholder="Escribe tu nombre" id="nom">
+    Apellido <input type="text" name="ape" placeholder="Escribe tu apellido" id="ape">
+    <script>
+        let titulo = document.getElementById('titulo');
+        let tituloOriginal = titulo.innerHTML;
+        let over = () => {
+            titulo.innerHTML = 'Si realmente lo es!!!';
+        }
+        titulo.onmouseover = over;
+        let out = () => {
+            titulo.innerHTML = tituloOriginal;
+        }
+        titulo.onmouseout = out;
+
+        //h2 click broma
+        let click = document.getElementById('click');
+        let clickOriginal = click.innerHTML;
+        let down = () => {
+            click.innerHTML = 'Acabo de meter un virus a tu computadora!!!!!';
+        }
+        click.onmousedown = down;
+        let up = () => {
+            click.innerHTML = clickOriginal;
+        }
+        click.onmouseup = up;
+
+        let nombre = document.getElementById('nombre');
+        let change = () => {
+            nombre.value = nombre.value.toUpperCase()
+        }
+        nombre.onchange = change;
+
+        let nom = document.getElementById('nom');
+        let ape = document.getElementById('ape');
+        let focuseado = (element) => {
+            element.style.background = 'yellow';
+        }
+        let blureado = (element) => {
+            element.style.background = 'white';
+        }
+
+        nombre.onfocus = () => focuseado(nombre);
+        nombre.onblur = () => blureado(nombre);
+        nom.onfocus = () => focuseado(nom);
+        nom.onblur = () => blureado(nom);
+        ape.onfocus = () => focuseado(ape);
+        ape.onblur = () => blureado(ape);
+    </script>
+</body>
+</html>

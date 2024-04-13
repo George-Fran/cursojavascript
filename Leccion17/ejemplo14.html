@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo 14</title>
+</head>
+<body>
+    <style>
+        body{
+            background: rgb(39, 39, 39);
+        }
+        .contenedor{
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .caja{
+            width: 250px;
+            height: 250px;
+            background: rgb(255, 255, 255);
+        }
+    </style>
+    <div class="contenedor">
+        <div class="caja"></div>
+        <div class="caja"></div>
+        <div class="caja"></div>
+        <div class="caja"></div>
+        <div class="caja"></div>
+        <div class="caja"></div>
+        <div class="caja"></div>
+    </div>
+    <script>
+        let cajas = document.querySelectorAll('.caja');
+        cajas.forEach((caja, index) => {
+            caja.addEventListener('mouseover', () => {
+                caja.style.border = '2px rgb(105, 253, 233) solid';
+            });
+            caja.addEventListener('mouseout', () => {
+                caja.style.border = 'none';
+            });
+        });
+    </script>
+</body>
+</html>

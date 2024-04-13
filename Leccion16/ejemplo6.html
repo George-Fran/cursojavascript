@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambiar color body</title>
+</head>
+<body id="boly">
+    <form id="formulario">
+        Cambiar Color: <input type="color" name="color" id="color">
+    </form>
+    <button onclick="cambiar()">Cambiar</button>
+    <script>
+        let cambiar = () => {
+            let formulario = document.forms['formulario'];
+            let color = formulario['color'];
+            console.log(color.value);
+            document.getElementById('boly').style.backgroundColor = color.value;
+        }
+    </script>
+</body>
+</html>

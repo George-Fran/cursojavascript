@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evemt Listener</title>
+</head>
+<body>
+    <div>
+        Hola mundo
+        <button class="borrar">Borrar</button>
+    </div>
+    <div>
+        Hola Adios
+        <button class="borrar">Borrar</button>
+    </div>
+    <div>
+        Hola adios
+        <button class="borrar">Borrar</button>
+    </div>
+    <div>
+        Hola mundo
+        <button class="borrar">Borrar</button>
+    </div>
+    <script>
+        let botones = document.querySelectorAll('.borrar');
+        botones.forEach(boton => {
+            boton.addEventListener('click', ()=> {
+                boton.parentNode.remove();
+            })
+        });
+    </script>
+</body>
+</html>

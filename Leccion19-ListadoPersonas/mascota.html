@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Mascotas</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body onload="cargarMascotas()">
+    <div class="contenedor" id="cabecero">
+        <h1>Listado de Mascotas</h1>
+    </div>
+
+    <div class="contenedor">
+        <div class="elemento">
+            <ul id="mascotas">
+                <!--<li>Juan Perez</li>-->
+            </ul>
+        </div>
+    </div>
+
+    <div class="contenedor">
+        <div style="text-align: center;">
+            <button style="cursor: pointer;" id="agregar">+</button>
+        </div>
+        <form id="forma">
+            <input type="text" id="nombre" placeholder="Nombre">
+            <input type="text" id="raza" placeholder="Raza">
+        </form>
+    </div>
+
+
+    <script src="js/mascota.js"></script>
+    <script src="js/app2.js"></script>
+</body>
+</html>

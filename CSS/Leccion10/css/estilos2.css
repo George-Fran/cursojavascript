@@ -1,0 +1,10 @@
+.contenedor{
+    width: 30%;
+    border: 5px dashed greenyellow;
+    height: 100px;
+    margin: auto;
+    /* overflow: visible; */
+    /* overflow: hidden; */
+    /* overflow: scroll; */
+    overflow: auto;
+}

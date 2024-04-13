@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Descargador de videos de YouTube</title>
+</head>
+<body>
+    <h1>Descargador de videos de YouTube</h1>
+    <input type="text" id="videoUrl" placeholder="Introduce la URL del video de YouTube">
+    <button onclick="downloadVideo()">Descargar</button>
+
+    <script>
+        function downloadVideo() {
+    var videoUrl = document.getElementById('videoUrl').value;
+    // Redirecciona la ventana actual a la URL del video para iniciar la descarga
+    window.location.href = videoUrl;
+}
+
+    </script>
+</body>
+</html>

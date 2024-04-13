@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tablas EJemplo</title>
+    <style>
+        table, th, td{
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 5px;
+        }
+        caption{
+            font-family: 'Trocchi', serif;
+            font-size: 50px;
+            line-height: 70px;
+        }
+        th{
+            background-color: rgb(158, 149, 124);
+        }
+        tr:nth-child(even){
+            background-color: rgb(150, 184, 247);
+        }
+        tr:nth-child(odd){
+            background-color: rgb(253, 196, 169);
+        }
+        table{
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <caption>Listado de personas</caption>
+            <th>Nombres</th>
+            <th>Apellidos</th>
+            <th>Correo</th>
+            <th>Telefono</th>
+        </tr>
+        <tr>
+            <td>George Franco</td>
+            <td>Gutierrez Valencia</td>
+            <td>ggutierrez@mail.com</td>
+            <td>9702001663</td>
+        </tr>
+        <tr>
+            <td>Carlos</td>
+            <td>Juarez</td>
+            <td>cjuarez@gmail.com</td>
+            <td>98321212</td>
+        </tr>
+        <tr>
+            <td>Juan</td>
+            <td>Perez</td>
+            <td>jpereza@gmail.com</td>
+            <td>91212121</td>
+        </tr>
+    </table>
+</body>
+</html>

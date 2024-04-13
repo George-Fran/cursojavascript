@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ingresos y Egresos</title>
+  </head>
+  <body onload="cargarApp()">
+    <div class="cabecero">
+      <h1>Presupuesto disponible</h1>
+      <h2 id="presupuesto">S/. 2000.00</h2>
+      <div>Ingresos</div>
+      <div id="ingresos">S/. 2500</div>
+      <div>Egresos</div>
+      <div id="egresos">S/. 500</div>
+      <div id="porcentaje">40%</div>
+    </div>
+    <div class="contenedor">
+      <form id="forma" onsubmit="return false;">
+        <select name="tipo" id="tipo">
+          <option value="ingreso">+</option>
+          <option value="egreso">-</option>
+        </select>
+        <input
+          type="text"
+          name="descripcion"
+          id="descripcion"
+          placeholder="Agrega descripcion"
+        />
+        <input type="number" name="valor" id="valor" placeholder="Valor" />
+        <button onclick="ingresar()">Ingresar</button>
+      </form>
+    </div>
+    <div class="contenedor limpiarEstilos">
+      <div class="ingreso">
+        <h2 class="ingreso_titulo">Ingresos</h2>
+        <div id="lista-ingresos">
+          <div class="elemento limpiarEstilos">
+            <div class="elemento_descripcion">Salario</div>
+            <div class="derecha limpiarEstilos">
+              <div class="elemento_valor">+ 2,200.00</div>
+              <div class="elemento_eliminar">
+                <button class="elemento_eliminar--btn">X</button>
+              </div>
+            </div>
+          </div>
+          <div class="elemento limpiarEstilos">
+            <div class="elemento_descripcion">Venta coche</div>
+            <div class="derecha limpiarEstilos">
+              <div class="elemento_valor">+ 1,500.00</div>
+              <div class="elemento_eliminar">
+                <button class="elemento_eliminar--btn">X</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="egreso">
+        <h2 class="egreso_titulo">Egresos</h2>
+        <div id="lista-egresos">
+          <div class="elemento limpiarEstilos">
+            <div class="elemento_descripcion">Renta departamento</div>
+            <div class="derecha limpiarEstilos">
+              <div class="elemento_valor">- 900.00</div>
+              <div class="elemento_porcentaje">21%</div>
+              <div class="elemento_eliminar">
+                <button class="elemento_eliminar--btn">X</button>
+              </div>
+            </div>
+          </div>
+          <div class="elemento limpiarEstilos">
+            <div class="elemento_descripcion">Ropa</div>
+            <div class="derecha limpiarEstilos">
+              <div class="elemento_valor">- 400.00</div>
+              <div class="elemento_porcentaje">10%</div>
+              <div class="elemento_eliminar">
+                <button class="elemento_eliminar--btn">X</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      class Dato {
+        constructor(descripcion, valor) {
+          this._descripcion = descripcion;
+          this._valor = valor;
+        }
+        get descripcion() {
+          return this._descripcion;
+        }
+        set descripcion(descripcion) {
+          this._descripcion = descripcion;
+        }
+        get valor() {
+          return this._valor;
+        }
+        set valor(valor) {
+          this._valor = valor;
+        }
+      }
+      class Ingreso extends Dato {
+        static contadorIngresos = 0;
+
+        constructor(descripcion, valor) {
+          super(descripcion, valor);
+          this._id = ++Ingreso.contadorIngresos;
+        }
+        get id() {
+          return this._id;
+        }
+      }
+
+      class Egreso extends Dato {
+        static contadorEgresos = 0;
+
+        constructor(descripcion, valor) {
+          super(descripcion, valor);
+          this._id = ++Egreso.contadorEgresos;
+        }
+        get id() {
+          return this._id;
+        }
+      }
+
+      const ingresos = [
+        new Ingreso("Pago Mensual", 1200),
+        new Ingreso("Venta Auto", 2500),
+      ];
+      const egresos = [
+        new Egreso("Pago Comida", 700),
+        new Egreso("Pago Departamento", 900),
+      ];
+
+      const cargarApp = () => {
+        cargarCabecero();
+        cargarIngresos();
+        cargarEgresos();
+      };
+
+      let totalIngresos = () => {
+        let totalIngreso = 0;
+        for (let ingreso of ingresos) {
+          totalIngreso += ingreso.valor;
+        }
+        return totalIngreso;
+      };
+      let totalEgresos = () => {
+        let totalEgreso = 0;
+        for (let egreso of egresos) {
+          totalEgreso += egreso.valor;
+        }
+        return totalEgreso;
+      };
+
+      let cargarCabecero = () => {
+        let presupuesto = totalIngresos() - totalEgresos();
+        let porcentajeEgreso = totalEgresos() / totalIngresos();
+        document.getElementById("presupuesto").innerHTML =
+          formatoMoneda(presupuesto);
+        document.getElementById("porcentaje").innerHTML =
+          formatoPorcentaje(porcentajeEgreso);
+        document.getElementById("ingresos").innerHTML = formatoMoneda(
+          totalIngresos()
+        );
+        document.getElementById("egresos").innerHTML = formatoMoneda(
+          totalEgresos()
+        );
+      };
+
+      const formatoMoneda = (valor) => {
+        return valor.toLocaleString("es-PE", {
+          style: "currency",
+          currency: "PEN",
+          minimumFranctionDigits: 2,
+        });
+      };
+
+      const formatoPorcentaje = (valor) => {
+        return valor.toLocaleString("en-US", {
+          style: "percent",
+          minimumFranctionDigits: 2,
+        });
+      };
+
+      const cargarIngresos = () => {
+        let ingresosHTML = '';
+        for(let ingreso of ingresos){
+          ingresosHTML += crearIngreso(ingreso);
+        }
+        document.getElementById('lista-ingresos').innerHTML = ingresosHTML;
+      }
+
+      let crearIngreso = (ingreso) =>  {
+        let ingresoHTML = `
+        <div class="elemento limpiarEstilos">
+            <div class="elemento_descripcion">${ingreso.descripcion}</div>
+            <div class="derecha limpiarEstilos">
+              <div class="elemento_valor">+ ${formatoMoneda(ingreso.valor)}</div>
+              <div class="elemento_eliminar">
+                <button class="elemento_eliminar--btn"
+                onclick="eliminarIngreso(${ingreso.id})">X</button>
+              </div>
+            </div>
+          </div>
+        `
+        return ingresoHTML;
+      }
+
+      let eliminarIngreso = (id) => {
+        let ingresoId = ingresos.findIndex(ingreso => ingreso.id === id);
+        ingresos.splice(ingresoId, 1);
+        cargarCabecero();
+        cargarIngresos();
+      }
+
+
+      const cargarEgresos = () => {
+        let egresosHTML = '';
+        for(let egreso of egresos){
+          egresosHTML += crearEgreso(egreso);
+        }
+        document.getElementById('lista-egresos').innerHTML = egresosHTML;
+      }
+
+      const crearEgreso = (egreso) => {
+        let egresoHTML = `
+        <div class="elemento limpiarEstilos">
+            <div class="elemento_descripcion">${egreso.descripcion}</div>
+            <div class="derecha limpiarEstilos">
+              <div class="elemento_valor">- ${formatoMoneda(egreso.valor)}</div>
+              <div class="elemento_porcentaje">${formatoPorcentaje(egreso.valor/totalEgresos())}</div>
+              <div class="elemento_eliminar">
+                <button class="elemento_eliminar--btn"
+                onclick="eliminarEgreso(${egreso.id})">X</button>
+              </div>
+            </div>
+          </div>
+        `
+        return egresoHTML;
+      }
+
+      let eliminarEgreso = (id) => {
+        let egresoId = egresos.findIndex(egreso => egreso.id===id);
+        egresos.splice(egresoId, 1);
+        cargarCabecero();
+        cargarEgresos()
+      }
+
+      let ingresar = () => {
+        let forma = document.forms['forma'];
+        let tipo = forma['tipo'];
+        let descripcion = forma['descripcion'];
+        let valor = forma['valor'];
+
+        if(descripcion.value !== '' && valor.value !== ''){
+          if(tipo.value == 'ingreso'){
+            ingresos.push(new Ingreso(descripcion.value, +valor.value));
+            cargarCabecero();
+            cargarIngresos();
+          } else if(tipo.value == 'egreso'){
+            egresos.push(new Egreso(descripcion.value, +valor.value));
+            cargarCabecero();
+            cargarEgresos();
+          } else {
+            console.log('no se ingreso nada');
+          }
+        }
+
+      }
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Frutas o Vegetales</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body onload="mostrarFrutasoVegetales()">
+    <div class="contenedor" id="cabecero">
+        <h1>Listado de Frutas o Vegetales</h1>
+    </div>
+
+    <div class="contenedor">
+        <div class="elemento">
+            <ul id="frutasovegetales">
+                <!--<li>Manzana - Fruta</li>-->
+            </ul>
+        </div>
+    </div>
+
+    <div class="contenedor">
+        <div style="text-align: center;">
+            <button style="cursor: pointer;" id="agregar">+</button>
+        </div>
+        <form id="forma">
+            <input type="text" id="nombre" placeholder="Nombre">
+            <select name="frutaovegetal" id="frutaovegetal">
+                <option value="Fruta">Fruta</option>
+                <option value="Vegetal">Vegetal</option>
+            </select>
+        </form>
+    </div>
+
+
+    <script src="js/frutavegetal.js"></script>
+    <script src="js/app4.js"></script>
+</body>
+</html>

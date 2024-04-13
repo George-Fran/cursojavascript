@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="titulo">Ejemplo Todo</title>
+</head>
+<body>
+    <h1>Hola, bienvenido a una prueba</h1>
+    <h2 class="verde">Welcome to my page</h2>
+    <h3 class="verde">Bomvenede to my land</h3>
+    <p style="text-align: center;" onclick="cambiar(this)">Hola te me cambias de cabello</p>
+    <form id="formulario">
+        Nombre: <input type="text" name="nombre" placeholder="Ingresa tu name">
+        Apellido: <input type="text" name="apellido" placeholder="Ingresa tu apellido">
+    </form>
+    <button onclick="ingresar()">Ingresar</button>
+    <div id="mostrar"></div>
+
+    <input type="color" name="color" id="color">
+    <button onclick="enviarColor()">Enviar Color</button>
+
+    <div id="otp"></div>
+    <button onclick="generar()">Generar</button>
+
+    <p>Cambiar dolar a sol</p>
+    Ingresa dolar: <input type="text" name="dolar" placeholder="Ingresa pues" id="dolar">
+    <p id="sol"></p>
+    <script>
+        document.getElementsByTagName('h1')[0].style.textAlign = 'center';
+        let verde = document.getElementsByClassName('verde');
+        for(let v of verde){
+            v.style.textAlign = 'center';
+            v.style.color = 'GREEN'
+        }
+        let cambiar = (texto) => {
+            texto.innerHTML = 'Cambiado';
+        }
+        let ingresar = () => {
+            let formulario = document.forms['formulario'];
+            let texto = ''
+            for(let f of formulario){
+                texto += f.value + '<br>';
+            }
+            document.getElementById('mostrar').innerHTML = texto
+        }
+        let arr = ['Yo nose', 'mañana', 'Yo nose', 'mañana', 'si', 'se acaba', 'el mundo', 'si', 'estaremos juntos'];
+        let i = 0
+        setInterval(() => {
+            document.getElementById('titulo').innerHTML = arr[i];
+            i++
+            if(i >= arr.length){
+                i = 0;
+            }
+        }, 1000);
+
+        let enviarColor = () => {
+            let color = document.getElementById('color');
+            console.log(color.value);
+            document.getElementsByTagName('body')[0].style.backgroundColor = color.value
+        }
+
+        let color = document.getElementById('color');
+        color.addEventListener('input', () => {
+            document.getElementsByTagName('body')[0].style.backgroundColor = color.value;
+        })
+
+        let generar = () => {
+            let numeros = 6;
+            let mostrar = '';
+            for(let i = 0; i < numeros; i++){
+                let random = Math.floor(Math.random() * 9)
+                mostrar += random
+            }
+            document.getElementById('otp').innerHTML = mostrar;
+        }
+
+        let dolar = document.getElementById('dolar');
+        dolar.addEventListener('input', () => {
+            let valor = dolar.value;
+            let sol = valor * 3.65
+            document.getElementById('sol').textContent = sol;
+        })
+    </script>
+</body>
+</html>

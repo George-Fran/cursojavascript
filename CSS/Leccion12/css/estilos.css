@@ -1,0 +1,15 @@
+html{
+    height: auto;
+    min-height: 100%;
+}
+h1{
+    text-align: center;
+}
+body{
+    /* background: linear-gradient(#f72585, #3a0ca3); */
+    /* background: linear-gradient(#24404d, #6dbff1, black); */
+    /* background: linear-gradient(to bottom right,#f72585, #3a0ca3); */
+    /* background: linear-gradient(145deg, #f72585, #3a0ca3); */
+    background: radial-gradient(circle, #0d47a1, #6e9fc7d0);
+    color: #f1faee;
+}

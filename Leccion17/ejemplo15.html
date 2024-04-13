@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ejemplo 15</title>
+  </head>
+  <body onload="cargar()">
+    <h1 id="titulo">Hola mundo</h1>
+    <p id="parrafo" style="font-size: 30px">Mira esto</p>
+    <hr />
+    <h2>Envia tu nombre</h2>
+    <form id="formulario">
+      <label for="nombre">Nombre</label>
+      <input
+        type="text"
+        name="nombre"
+        id="nombre"
+        placeholder="Ingresa tu nombre"
+      />
+      <br /><br />
+      <label for="apellido">Apellido</label>
+      <input
+        type="text"
+        name="apellido"
+        id="apellido"
+        placeholder="Ingresa tu apellido"
+      />
+    </form>
+    <br>
+    <button id="mostrar">Mostrar</button>
+
+    <script>
+      function cargar() {
+        document.getElementById("titulo").innerHTML = "Adios Mundo";
+      }
+      let parrafo = document.getElementById("parrafo");
+      parrafo.addEventListener("mouseover", (evento) => {
+        let arr = [
+          "red",
+          "blue",
+          "yellow",
+          "orange",
+          "springgreen",
+          "green",
+          "brown",
+        ];
+        let randomColor = arr[Math.floor(Math.random() * arr.length)];
+        evento.target.style.color = randomColor;
+      });
+      parrafo.addEventListener("mouseout", (evento) => {
+        evento.target.style.color = "";
+      });
+
+      let formulario = document.forms['formulario'];
+      let nombre = formulario['nombre'];
+      let apellido = formulario['apellido'];
+      formulario.addEventListener('focus', (evento) => {
+        evento.target.style.background = 'orange';
+      }, true);
+      formulario.addEventListener('blur', (evento) => {
+        evento.target.style.background = '';
+      }, true);
+      let mostrar = document.getElementById('mostrar');
+      mostrar.addEventListener('click', () => {
+        if(nombre.value != '' && apellido.value != ''){
+        let esta = `${nombre.value} ${apellido.value}`
+        let li = document.createElement('li');
+        li.textContent = esta;
+        document.getElementsByTagName('body')['0'].appendChild(li);
+        nombre.value = '';
+        apellido.value = '';
+        } else {
+          console.log('Faltan argumentos');
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,130 @@
+h1{
+    text-align: center;
+}
+/* .rojo{
+    background-color: firebrick;
+}
+.rosa{
+    background-color: hotpink;
+}
+.amarillo {
+    background-color: gold;
+}
+.violeta{
+    background-color: blueviolet;
+}
+.verde{
+    background-color: lime;
+}
+.azul{
+    background-color: turquoise;
+}
+.rojo, .rosa, .violeta{
+    color: #fff;
+} */
+h1{
+    text-align: center;
+}
+/* bordes colores
+.rojo{
+    border: 10px solid firebrick;
+}
+.rosa{
+    border: 10px dashed rgb(255, 105, 180);
+}
+.amarillo {
+    border: 10px double #ffd700;
+}
+
+.azul{
+    border: 10px dotted hsl(174, 72%, 56%);
+} */
+
+/* 
+.punteado{
+    border-style: dotted;
+    border-width: 10px 5px 3px 2px;
+}
+.discontinuo{
+    border-style: dashed;
+}
+.solido{
+    border: 10px solid red;
+}
+.doble{
+    border: 10px double;
+}
+.surco{
+    border-width: 10px;
+    border-style: groove;
+}
+.cresta{
+    border: 10px ridge;
+}
+.recuadro{
+    border: 10px inset;
+}
+.outset{
+    border: 10px outset;
+}
+.sin_borde{
+    border: none;
+}
+.oculto{
+    border: hidden;
+}
+.mixto {
+    border-style: dotted solid dashed double;
+} */
+
+/* .punteado{
+    border-style: dotted;
+    border-width: 10px 5px 3px 2px;
+    border-color: aquamarine black blue green;
+}
+.discontinuo{
+    border-style: dashed;
+    border-width: thick;
+    border-color: hsla(203, 39%, 44%, .5);
+}
+.solido{
+    border-width: 10px 5px 2px;
+    border-style: solid;
+    border-color: red;
+}
+.doble{
+    border: 10px double blueviolet;
+    border-width: 10px 5px;
+}
+.surco{
+    border-width: 10px;
+    border-style: groove;
+}
+.cresta{
+    border: 10px ridge;
+}
+.recuadro{
+    border: 10px inset;
+}
+.outset{
+    border: 10px outset;
+}
+.sin_borde{
+    border: none;
+}
+.oculto{
+    border: hidden;
+}
+.mixto {
+    border-style: dotted solid dashed double;
+} */
+
+.solido{
+    border: solid red;
+    border-width: 5px;
+    border-radius: 20px;
+}
+.redondeado{
+    border: 5px solid blueviolet;
+    border-radius: 20px 0px 10px 0px;
+}

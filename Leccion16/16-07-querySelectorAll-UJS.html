@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title id="titulo">Ejemplo DOM con Javascript</title>
+    <style>
+        .azul{
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="azul">Ejemplo DOM con Javascript</h1>
+    <p class="azul">Saludos!</p>
+    <p class="azul">Otro parrafo</p>
+    <script>
+        let elementos = document.querySelectorAll('p.azul')
+        console.log(`No.Elementos: ${elementos.length}`);
+        for(let i = 0; i < elementos.length; i++){
+            console.log(`${i} - ${elementos[i].innerHTML}`);
+        }
+        for(let e of elementos){
+            console.log(`${e.innerHTML}`);
+        }
+    </script>
+    
+    
+</body>
+</html>

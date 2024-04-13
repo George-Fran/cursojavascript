@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambiar a sol</title>
+</head>
+<body>
+    <h1 style="text-align: center;">Bienvenido a tu cambiador de Dolar a PEN</h1>
+    Ingresa Dolar: <input type="number" name="dolar" placeholder="Ingresa tu dolar" id="dolar">
+    <div id="mostrar"></div>
+    <script>
+        let dolar = document.getElementById('dolar');
+        dolar.addEventListener('input', () => {
+            let sol = dolar.value * 3.65;
+            document.getElementById('mostrar').innerHTML = sol;
+        });
+    </script>
+</body>
+</html>

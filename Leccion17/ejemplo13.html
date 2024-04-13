@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hola</title>
+  </head>
+  <body>
+    <style>
+      body {
+        background-color: rgb(50, 152, 241);
+      }
+      .contenedor {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+      }
+      .caja {
+        width: 350px;
+        height: 350px;
+        background: rgb(248, 248, 248);
+      }
+    </style>
+    <div class="contenedor">
+      <div class="caja"></div>
+      <div class="caja"></div>
+      <div class="caja"></div>
+      <div class="caja"></div>
+      <div class="caja"></div>
+      <div class="caja"></div>
+    </div>
+
+    <script>
+      let cajas = document.querySelectorAll(".caja");
+
+      cajas.forEach((caja, index) => {
+        caja.addEventListener("mouseover", () => {
+          caja.style.border = "2px red solid";
+        });
+        caja.addEventListener("mouseout", () => {
+          caja.style.border = "none";
+        });
+      });
+    </script>
+  </body>
+</html>

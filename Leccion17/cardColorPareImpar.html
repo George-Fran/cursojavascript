@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarjeta color</title>
+</head>
+<body>
+    <style>
+        body{
+            background: #2c2a2a;
+        }
+        .contenedor{
+            display: flex;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .items {
+            width: 250px;
+            height: 250px;
+            background-color: darkorange;
+            margin: 5px;
+        }
+    </style>
+
+    <div class="contenedor">
+        <div class="items"></div>
+        <div class="items"></div>
+        <div class="items"></div>
+        <div class="items"></div>
+        <div class="items"></div>
+    </div>
+
+    <script>
+        let items = document.querySelectorAll('.items');
+        items.forEach((item, index) => {
+            item.addEventListener('mouseover', (evento) => {
+                let x = evento.target;
+                if(index%2 === 0){
+                    x.style.backgroundColor = 'red';
+                } else {
+                    x.style.backgroundColor = 'white';
+                }
+            });
+            item.addEventListener('mouseout', (evento) => {
+                let x = evento.target;
+                x.style.backgroundColor = '';
+            });
+        });
+    </script>
+</body>
+</html>

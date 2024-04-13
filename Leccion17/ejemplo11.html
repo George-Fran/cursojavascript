@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="titulo">Repaso ejemplo 11</title>
+</head>
+<body>
+    <h1 style="text-align: center;" id="titulo1">Mi primer hoa mundo</h1>
+    <h2 id="titulo2">Titulo segundo</h2>
+
+    <input type="text" placeholder="Hola escribe algo" id="input1">
+    <input type="text" placeholder="Hola escribe algo" id="input2">
+
+    <br><br>
+    <form id="formulario">
+        <input type="text" placeholder="input1">
+        <input type="text" placeholder="input2">
+        <input type="text" placeholder="input2">
+    </form>
+
+    <br><br>
+    <input type="color" id="color">
+
+    <div id="divsito">
+        <p>Hola mundo</p>
+        <p>Hola mundo</p>
+        <p>Hola mundo</p>
+        <p>Hola mundo</p>
+        <p>Hola mundo</p>
+    </div>
+
+    <script>
+        let titulo1 = document.getElementById('titulo1');
+        let titulo2 = document.getElementById('titulo2');
+
+        let text1 = '';
+        titulo1.addEventListener('mouseover', (evento) => {
+            let e = evento.target;
+            text1 = e.innerHTML;
+            e.innerHTML = 'Adios mundo';
+        });
+        titulo1.addEventListener('mouseout', (evento) => {
+            let e = evento.target;
+            e.innerHTML = text1;
+        });
+
+        let text2 = '';
+        titulo2.addEventListener('mousedown', (evento) => {
+            let e = evento.target;
+            text2 = e.innerHTML;
+            e.innerHTML = 'Adios mundo';
+        });
+        titulo2.addEventListener('mouseup', (evento) => {
+            let e = evento.target;
+            e.innerHTML = text2;
+        });
+
+        document.getElementById('input1').addEventListener('focus', focuseando);
+        document.getElementById('input1').addEventListener('blur', blureado);
+        document.getElementById('input2').addEventListener('focus', focuseando);
+        document.getElementById('input2').addEventListener('blur', blureado);
+
+        function focuseando(evento) {
+            let e = evento.target;
+            e.style.background = 'pink';
+        }
+
+        function blureado(evento) {
+            let e = evento.target;
+            e.style.background = '';
+        }
+
+        const FORMULARIO = document.getElementById('formulario');
+        FORMULARIO.addEventListener('focus', (evento) => {
+            let e = evento.target;
+            e.style.background = 'yellow';
+        }, true);
+        FORMULARIO.addEventListener('blur', (evento) => {
+            let e = evento.target;
+            e.style.background = '';
+        }, true);
+
+
+        let color = document.getElementById('color');
+
+        color.addEventListener('input', () => {
+            document.getElementsByTagName('body')[0].style.background = color.value;
+        });
+
+        let titulo = document.getElementById('titulo');
+        let original = titulo.innerHTML;
+        let arr = ['hola', 'mundo', 'JavaScript', original];
+        let i = 0;
+
+        setInterval(() => {
+            titulo.innerHTML = arr[i];
+            i++;
+            if(i >= arr.length){
+                i = 0;
+            }
+        }, 1000);
+
+        let divsito = document.getElementById('divsito');
+
+        divsito.addEventListener('click', (evento) => {
+            evento.target.remove(this)
+        }, true);
+    </script>
+</body>
+</html>

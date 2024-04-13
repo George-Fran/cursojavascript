@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo9</title>
+</head>
+<body>
+    <input type="text" placeholder="Escribe tu nombre" id="nombre">
+    <input type="text" placeholder="Escribe tu apellido" id="apellido">
+    <input type="text" placeholder="Escribe tu direccion" id="direccion">
+
+<br><br>
+    <form id="forma">
+        <input type="text" name="sas" placeholder="when">
+        <input type="text" name="sasa" placeholder="haces tus momos en input">
+    </form>
+    <br><br>
+    Dolar a sol:
+    <input type="number" name="dolar" placeholder="inserte el valor de su dolar" id="dolar">
+    <br>
+    <div id="mostrar"></div>
+    <script>
+        let nombre = document.getElementById('nombre');
+        nombre.addEventListener('mouseover', (evento) => {
+            evento.target.style.background = 'yellow';
+        });
+        nombre.addEventListener('mouseout', (evento) => {
+            evento.target.style.background = '';
+        });
+
+        let over = (evento) => {
+            evento.target.style.background = 'yellow';
+        }
+        let out = (evento) => {
+            evento.target.style.background = '';
+        }
+
+        document.getElementById('apellido').addEventListener('mouseover', over);
+        document.getElementById('apellido').addEventListener('mouseout', out);
+
+        document.getElementById('direccion').addEventListener('mouseover', over);
+        document.getElementById('direccion').addEventListener('mouseout', out);
+
+        const FORMA = document.getElementById('forma');
+
+        FORMA.addEventListener('focus', (evento) => {
+            evento.target.style.background = 'pink';
+        }, true);
+        FORMA.addEventListener('blur', (evento) => {
+            evento.target.style.background = '';
+        }, true);
+
+
+        let dolar = document.getElementById('dolar');
+        dolar.addEventListener('input', () => {
+            let sol = dolar.value * 3.67;
+            document.getElementById('mostrar').innerHTML = sol;
+        });
+    </script>
+</body>
+</html>

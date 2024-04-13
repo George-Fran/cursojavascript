@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Pepe</title>
+    <style>
+        .texto{
+            list-style-type: none;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center; font-family: sans-serif;">Hola Soy <span id="cambio">Programador</span></h1>
+    <p>El pepe</p>
+    <p>Etesech</p>
+    <p>Eso tilin</p>
+
+    <li class="webadas">Hola</li>
+    <li class="webadas">Cola</li>
+    <li class="webadas">Chola</li>
+    <script>
+        let parrafo = document.getElementsByTagName('p');
+        for(let i = 0; i < parrafo.length; i++){
+            console.log(`${i} - ${parrafo[i].innerHTML}`);
+        }
+
+        let webadas = document.getElementsByClassName('webadas');
+        for(let i = 0; i < webadas.length; i++){
+            console.log(webadas[i].innerHTML);
+        }
+
+        for(let w of webadas){
+            w.classList.add('texto');
+        }
+
+
+
+
+        let cambio = document.getElementById('cambio');
+        let arr = ['Diseñador', 'Ingenioso', 'Apasionado', 'Programador'];
+        let indice = 0;
+        setInterval(() => {
+            cambio.innerHTML = arr[indice];
+            indice++;
+            if(indice >= arr.length)
+                return indice = 0;
+        }, 2000);
+    </script>
+</body>
+</html>

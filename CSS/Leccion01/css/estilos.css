@@ -1,0 +1,22 @@
+*{
+    background-color: ghostwhite;
+    color: rgb(187, 124, 29);
+}
+#titulo{
+    color: crimson;
+    text-align: center;
+}
+
+
+.texto_grande{
+    font-size: 20px;
+}
+
+/* h1, h2, p, div{
+    color: crimson;
+    text-align: center;
+} */
+
+p.centrar{
+    text-align: center;
+}

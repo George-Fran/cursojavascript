@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title id="titulo">Ejemplo DOM con Javascript</title>
+</head>
+<body>
+    <h1 id="cabecero">Ejemplo DOM con Javascript</h1>
+    <p  >Saludos!</p>
+    <p  >Otro parrafo</p>
+    <script>
+        let parrafos = document.getElementsByTagName('p');
+        for(let i = 0; i < parrafos.length; i++){
+            console.log(`${i} - ${parrafos[i].innerHTML}`);
+        }
+    </script>
+    
+</body>
+</html>

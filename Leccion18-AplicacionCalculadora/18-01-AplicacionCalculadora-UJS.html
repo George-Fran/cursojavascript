@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aplicacion calculadora</title>
+  </head>
+  <body>
+    <h1 style="text-align: center; font-family: sans-serif">
+      Aplicacion Calculadora
+    </h1>
+
+    <form id="formulario">
+      <span>Operando A</span>
+      <br />
+      <input type="number" placeholder="Escribe Operando A" name="numero1" />
+      <br />
+      <span>Operando B</span>
+      <br />
+      <input type="number" placeholder="Escribe Operando B" name="numero2" />
+    </form>
+    <br />
+    <button
+      style="width: 100px; background: skyblue; border: none"
+      id="calcular"
+    >
+      Sumar
+    </button>
+    <div id="mostrar"></div>
+
+    <script>
+      let calcular = document.getElementById("calcular");
+      calcular.addEventListener("click", () => {
+        let formulario = document.forms["formulario"];
+
+        let numero1 = formulario["numero1"];
+        let numero2 = formulario["numero2"];
+
+        let resultado = parseInt(numero1.value) + parseInt(numero2.value);
+        if (isNaN(resultado)) {
+          resultado = "XD";
+        }
+        document.getElementById("mostrar").innerHTML = resultado;
+      });
+    </script>
+  </body>
+</html>

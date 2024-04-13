@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="title">El Pepe</title>
+</head>
+<body>
+    <style>
+
+    </style>
+    <h1 id="titulo">Mi primera Web</h1>
+    <h2 id="tituloh2">Mi Segundo h2</h2>
+    <p>Buenas amigos</p>
+    <p>Hola amigasos</p>
+    <p>Adios cabezones</p>
+    <a class="link" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Click para regalo</a>
+    <br>
+    <a class="link" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Click para otro regalo</a>
+
+    <script>
+        let titulo = document.getElementById('titulo');
+        console.log(titulo.innerHTML);
+        let tituloh2 = document.getElementById('tituloh2');
+        console.log(tituloh2.innerHTML);
+        let parrafos = document.getElementsByTagName('p');
+        for(let i = 0; i < parrafos.length; i++){
+            console.log(`${i} - ${parrafos[i].innerHTML}`);
+        }
+        let links = document.getElementsByClassName('link');
+        for(let l of links){
+            console.log(l.innerHTML);
+            l.style.textDecoration = 'none';
+        }
+
+        let title = document.getElementById('title');
+
+        let arr = ['Etesech', 'Eso Tilin', 'El Pepe'];
+        let i = 0;
+        setInterval(() => {
+            title.innerHTML = arr[i];
+            i++;
+            if(i >= arr.length){
+                i = 0;
+            }
+        }, 2000
+);
+    </script>
+    
+</body>
+</html>

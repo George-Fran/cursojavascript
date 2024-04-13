@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Repasando</title>
+</head>
+<body>
+    <style>
+        #contenedor{
+            display: flex;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+        .cuadrado{
+            background-color: rgb(160, 255, 160);
+            width: 250px;
+            height: 250px;
+            margin: 5px;
+        }
+    </style>
+    <h1>Hola mundo</h1>
+    <h2>Bienvenidos a mi pagina</h2>
+
+    <div id="contenedor">
+        <div class="cuadrado"></div>
+        <div class="cuadrado"></div>
+        <div class="cuadrado"></div>
+        <div class="cuadrado"></div>
+        <div class="cuadrado"></div>
+        <div class="cuadrado"></div>
+    </div>
+
+    <form id="formulario">
+        <input type="text" name="nombre" id="nombre">
+        <input type="text" name="apelludi" id="apellido">
+        <input type="date" name="edad" id="edad">
+    </form>
+    <button id="boton">Enviar</button>
+    <div id="mostrar"></div>
+
+    <script>
+        let tituloh1 = document.getElementsByTagName('h1')[0];
+        let tituloh2 = document.getElementsByTagName('h2')[0];
+
+        tituloh1.style.textAlign = 'center';
+        tituloh2.style.textAlign = 'center';
+        tituloh1.addEventListener('mouseover', (evento) => {
+            evento.target.style.color = 'red';
+        });
+        tituloh1.addEventListener('mouseout', (evento) => {
+            let x = evento.target;
+            x.style.color = '';
+        });
+
+        tituloh2.onmousedown = () => {
+            tituloh2.style.color = 'green';
+        };
+        tituloh2.onmouseup = () => {
+            tituloh2.style.color = '';
+        }
+        let cuadrados = document.querySelectorAll('.cuadrado');
+        cuadrados.forEach((cuadrado, index) => {
+            cuadrado.addEventListener('mouseover', (evento) => {
+                evento.target.style.backgroundColor = 'red';
+                if(index%2 === 0){
+                    evento.target.style.backgroundColor = 'rgb(97, 117, 207)'
+                }
+            });
+            cuadrado.addEventListener('mouseout', (evento) => {
+                evento.target.style.backgroundColor = '';
+            });
+        })
+        ///////7sasasas
+
+        let formulario = document.forms['formulario'];
+        let nombre = formulario['nombre'];
+        let apellido = formulario['apellido'];
+        let edad = formulario['edad'];
+
+        let boton = document.getElementById('boton');
+        boton.addEventListener('click', () => {
+            let fechaNac = new Date(edad.value);
+            let diaActual = new Date();
+            var edadd = diaActual.getFullYear() - fechaNac.getFullYear();
+            var mes = diaActual.getMonth() - fechaNac.getMonth();
+            console.log(edad.value)
+            if(mes < 0 || (mes === 0 && diaActual.getDate() < fechaNac.getDate())) {
+                edadd--;
+            }
+            document.getElementById('mostrar').innerHTML = `Hola ${nombre.value} ${apellido.value}, tienes ${edadd} años!`;
+        });
+
+
+        </script>
+</body>
+</html>

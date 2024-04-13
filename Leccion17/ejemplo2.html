@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practica hoy</title>
+</head>
+<body onload="cargar()">
+    <h1 onclick="cambiar(this)">Mi primer texto</h1>
+    <h2 id="textoh2">Mi primer h2</h2>
+    <h3>Cambia tu texto a mayuscula</h3>
+    <input style="width: 200px; height: 100px;" type="text" name="nombre" placeholder="Cambia tu texto a mayuscula" onchange="mayuscula(this)">
+    <script>
+        let cambiar = (texto) => {
+            texto.innerHTML = 'Mi segundo texto';
+        }
+
+        document.getElementById('textoh2').onclick = cambiarTexto;
+        function cambiarTexto() {
+            document.getElementById('textoh2').innerHTML = 'Mi segundo h2';   
+        }
+
+        function cargar() {
+            alert('cargado');
+        }
+
+        function mayuscula(texto) {
+            texto.value = texto.value.toUpperCase();
+        }
+    </script>
+</body>
+</html>

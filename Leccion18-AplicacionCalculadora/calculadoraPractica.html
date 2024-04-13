@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+</head>
+<body>
+    <form id="formulario">
+        <label for="numero1">Numero 1</label>
+        <input type="number" id="numero1" placeholder="Escribe el primer numero">
+        <br><br>
+        <label for="numero2">Numero 2</label>
+        <input type="number" id="numero2" placeholder="Escribe el segundo numero">
+    </form>
+    <br>
+    <button id="calcular">Sumar</button>
+    <br>
+    <div id="mostrar"></div>
+    <script>
+        let calcular = document.getElementById('calcular');
+        calcular.addEventListener('click', () => {
+        let formulario = document.forms['formulario'];
+        let numero1 = formulario['numero1'];
+        let numero2 = formulario['numero2'];
+        let resultado = parseInt(numero1.value) + parseInt(numero2.value);
+        if(isNaN(resultado)){
+            resultado = 'Faltan numeros'
+        }
+        document.getElementById('mostrar').innerHTML = `Resultado: ${resultado}`;
+        });
+    </script>
+</body>
+</html>

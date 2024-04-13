@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Que edad tienes?</title>
+</head>
+<body>
+    <h1 id="mostrar" style="text-align: center;">Hola ingresa tu nombre y la fecha de tu cumpleaños</h1>
+    <form id="formulario">
+        <input type="text" name="nombre" id="nombre" placeholder="Ingresa tu nombre"><br>
+        <input type="text" name="apellido" id="apellido" placeholder="Ingresa tu apellido"><br>
+        <input type="date" name="fecha" id="fecha">
+    </form>
+    <button id="boton">Enviar</button>
+
+    <script>
+
+        let boton = document.getElementById('boton');
+        boton.onclick = () => {
+            let hoy = new Date();
+        let formulario = document.forms['formulario'];
+        let nombre = formulario['nombre'];
+        let apellido = formulario['apellido'];
+        let fecha = formulario['fecha'];
+        let dia = new Date(fecha.value);
+
+        let edad = hoy.getFullYear() - dia.getFullYear();
+        let mes = hoy.getMonth() - dia.getMonth();
+        if(mes < 0 || (mes === 0 && hoy.getDate() < dia.getDate() )){
+            edad--;
+        }
+
+        document.getElementById('mostrar').innerHTML = `Hola ${nombre.value} ${apellido.value}, tienes ${edad} años`;
+        nombre.value = '';
+        apellido.value = '';
+        fecha.value = '';
+        }
+
+    </script>
+</body>
+</html>

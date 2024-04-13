@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo 16</title>
+</head>
+<body>
+    <style>
+        .contenedor{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        button{
+            width: 100px;
+            height: 50px;
+            margin: 5px;
+            color: white;
+            border: 2px rgb(11, 10, 12) solid;
+            border-radius: 5px;
+        }
+    </style>
+    <h1 style="text-align: center;">Quieres ser mi flaca?</h1>
+    <div class="contenedor">
+            <button style="background: greenyellow; color: black;" onclick="siQuiero()">Si quiero</button>
+            <button id="btnNo" style="background: red;">No por feo</button>
+    </div>
+    <script>
+        let btnNo = document.getElementById('btnNo');
+        btnNo.addEventListener('mouseover', (evento) => {
+            let w = window.innerWidth;
+            let h = window.innerHeight;
+            let nuevoW = (Math.random() * w);
+            let nuevoH = (Math.random() * h);
+
+            evento.target.style.position = 'absolute';
+            evento.target.style.left = nuevoW + 'px';
+            evento.target.style.top = nuevoH + 'px';
+        });
+        function siQuiero() {
+            location.href = 'https://www.twitch.tv/mixwell';
+        }
+    </script>
+</body>
+</html>

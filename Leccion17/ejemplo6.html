@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo6</title>
+</head>
+<body>
+    <h1 style="text-align: center;">Go coito?</h1>
+    <div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+    <button style="width: 150px; height: 50px; background-color: green; color: white;" onclick="llevame()">Si</button>
+    <button style="width: 150px; height: 50px; background-color: red; color: white;" onmouseover="mover(this)">No</button>
+    </div>
+
+    <input type="text" name="nombre" id="nombre" placeholder="Hola carajo" onfocus="foco(this)" onblur="sacarFoco(this)">
+    <script>
+        let llevame = () => {
+            alert('OK mañana te cacho')
+        }
+        let mover = (btn) => {
+            let width = window.innerWidth;
+            let height = window.innerHeight;
+            let nuevoW = (Math.random() * width);
+            let nuevoH = (Math.random() * height);
+            btn.style.position = 'absolute';
+            btn.style.left = nuevoW + "px";
+            btn.style.top = nuevoH + "px";
+        }
+
+        let foco = (e) => {
+            e.style.backgroundColor = 'yellow';
+        }
+        let sacarFoco = (e) => {
+            e.style.backgroundColor = 'white';
+        }
+    </script>
+</body>
+</html>

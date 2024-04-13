@@ -1,0 +1,26 @@
+html{
+    height: 100%;
+}
+body{
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(#000000, #1b0000);
+}
+table, th, td{
+    border: 1px solid #fff;
+    border-collapse: collapse;
+    text-align: center;
+}
+table {
+    color: #fff;
+    width: 100%;
+}
+th{
+    background-color: crimson;
+}
+tr:nth-child(even){
+    background-color: rgb(6, 126, 86);
+}
+tr:nth-child(odd){
+    background-color: rgb(136, 56, 3);
+}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title id="titulo">Ejemplo DOM con Javascript</title>
+</head>
+<body>
+    <h1 id="cabecero">Ejemplo DOM con Javascript</h1>
+    <p id="parrafo">Saludos!</p>
+    <script>
+        let cabecero = document.getElementById('cabecero');
+        console.log(`Valor cabecero: ${cabecero.innerHTML}`);
+        let parrafo = document.getElementById('parrafo');
+        console.log(`Valor parrafo: ${parrafo.innerHTML}`);
+        parrafo.innerHTML = 'Nuevo Valor del parrafo';
+        cabecero.innerHTML = 'Nuevo Valor del cabecero';
+        // let titulo = document.getElementById('titulo');
+        // let arr = ['Hola', 'Mundo', 'Como', 'Van'];
+        // let i = 0;
+        // setInterval(() => {
+        //     titulo.innerHTML = arr[i];
+        //     i++;
+        //     if(i >= arr.length)
+        //         i = 0;
+        // }, 2000);
+
+        
+    </script>
+    
+</body>
+</html>

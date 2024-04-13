@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vamos</title>
+</head>
+<body>
+    <h1 onclick="cambiar(this)">Hola buenos dias</h1>
+    <h2 id="subtitulo">Buenas noches caballero</h2>
+    Mayuscula aqui: <input type="text" name="nombre" placeholder="Escribe un texto manito" onchange="change(this)">
+    <script>
+        let cambiar = (texto) => {
+            texto.innerHTML = 'Ya es de tarde pendejo';
+        }
+        let subtitulo = document.getElementById('subtitulo').onclick = cambio;
+        function cambio() {
+            document.getElementById('subtitulo').innerHTML = 'Aun es de tarde pendejo';
+        }
+
+
+        let change = (x) => {
+            x.value = x.value.toUpperCase();
+        }
+    </script>
+</body>
+</html>

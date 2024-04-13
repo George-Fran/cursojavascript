@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+</head>
+<body>
+    <form id="formulario">
+        <Label>Nombre</Label>
+        <input type="text" name="nombre" placeholder="Escribe tu nombre">
+        <br><br>
+        <label>Apellido</label>
+        <input type="text" name="apellido" placeholder="Escribe tu apellido">
+        <br><br>
+        <label>Dni</label>
+        <input type="text" name="dni" placeholder="Escribe tu dni">
+    </form>
+    <button onclick="mostrar()">Mostrar</button>
+    <div id="pepe">
+
+    </div>
+    <script>
+        let mostrar = () => {
+            let formulario = document.forms['formulario'];
+            let texto = '';
+            for(let e of formulario){
+                texto += e.value + '<br>';
+            }
+            document.getElementById('pepe').innerHTML = texto;
+        }
+
+    </script>
+</body>
+</html>

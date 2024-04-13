@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>xd</title>
+  </head>
+  <body>
+    <style>
+      .contenedor {
+        display: flex;
+      }
+      #caja {
+        background: wheat;
+        width: 250px;
+        height: 250px;
+        margin: auto;
+      }
+    </style>
+    <div class="contenedor" id="contenedor">
+      <div id="caja"></div>
+      <div id="caja"></div>
+      <div id="caja"></div>
+    </div>
+
+    <script>
+      let cajas = document.querySelectorAll("#caja");
+      cajas.forEach((caja, index) => {
+        caja.addEventListener("mouseover", (evento) => {
+          evento.target.style.border = "2px red solid";
+        });
+        caja.addEventListener("mouseout", (evento) => {
+          evento.target.style.border = "none";
+        });
+      });
+    </script>
+  </body>
+</html>
